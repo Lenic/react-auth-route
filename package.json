@@ -1,6 +1,6 @@
 {
   "name": "@lenic/react-auth-route",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Auth route for react router 4.",
   "main": "lib/index.js",
   "scripts": {
@@ -14,8 +14,9 @@
   "keywords": [
     "react",
     "router",
-    "config",
-    "dynamic"
+    "route",
+    "auth",
+    "async"
   ],
   "author": {
     "name": "Lenic Rayleigh",
