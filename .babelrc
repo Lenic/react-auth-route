@@ -8,7 +8,7 @@
           "chrome": "49",
           "ie": "11"
         },
-        "modules": "cjs"
+        "modules": false
       }
     ]
   ],

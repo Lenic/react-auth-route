@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+let Delay = 200
+  , Loading = null;
+
 class AsyncComponent extends React.PureComponent {
-  static Delay = 200
-  static Loading = null
+  static setDelay = v => Delay = v
+  static setLoading = v => Loading = v
 
   static propTypes = {
     delay: PropTypes.number,
@@ -33,7 +36,7 @@ class AsyncComponent extends React.PureComponent {
     const { delay, component } = this.props
       , token = setTimeout(() => !this.$isUnmount && this.setState({
         isExpired: true,
-      }), delay || this.constructor.Delay);
+      }), delay || Delay);
 
     component().then(v => {
       clearTimeout(token);
@@ -55,12 +58,12 @@ class AsyncComponent extends React.PureComponent {
   render() {
     const { loading, ...rest } = this.props
       , { Component } = this.state
-      , Loading = loading || AsyncComponent.Loading;
+      , loadingX = loading || Loading;
 
     if (Component) {
       return React.createElement(Component, rest);
     } else if (this.state.isExpired) {
-      return Loading ? <Loading /> : null;
+      return loadingX ? React.createElement(loadingX) : null;
     } else {
       return null;
     }

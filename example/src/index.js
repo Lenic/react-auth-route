@@ -7,9 +7,9 @@ import { AuthRoute, AsyncComponent } from '@lenic/react-auth-route';
 import Main from './main/index.jsx';
 import Login from './login';
 
-AsyncComponent.Loading = () => <div>Default Loading.</div>;
+AsyncComponent.setLoading(() => <div>Default Loading.</div>);
 
-AuthRoute.Valid = props => {
+AuthRoute.setValid(props => {
   if (props.match.path === '/login') {
     return true;
   }
@@ -34,7 +34,7 @@ AuthRoute.Valid = props => {
   }
 
   return true;
-}
+});
 
 const root = (
   <Router>

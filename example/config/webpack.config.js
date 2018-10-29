@@ -28,13 +28,13 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@lenic/react-auth-route': getPath('src'),
+      '@lenic/react-auth-route': getPath('lib'),
     },
   },
   plugins: [
     new webpack.NamedChunksPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Dynamic React Router Demo',
+      title: 'Auth Route for React Router 4 Demo',
       template: getPath('example/config/index.html'),
     }),
   ],
